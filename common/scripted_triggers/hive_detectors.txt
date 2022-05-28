@@ -1,0 +1,31 @@
+is_gestalt = {
+    has_ethic = ethic_gestalt_consciousness
+}
+
+is_hive_empire = {
+    OR = {
+        has_authority = auth_hive_mind
+        has_authority = auth_paramind
+    }
+} 
+
+gestalt_controls_spawning = {
+    OR = {
+        has_authority = auth_hive_mind
+    }
+}
+
+gestalt_can_ascend = {
+    OR = {
+        has_authority = auth_hive_mind
+        has_authority = auth_paramind
+    }
+}
+
+# Can this gestalt make robots and use them for the purposes of ascensions like "the flesh is weak"
+# gestalts with bots should NEVER control spawning so pop assembly is bots
+gestalt_has_bots = {
+    OR = {
+        has_authority = auth_paramind
+    }
+}
