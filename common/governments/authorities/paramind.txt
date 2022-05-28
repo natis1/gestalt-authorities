@@ -1,0 +1,29 @@
+auth_paramind = {
+    # Rulers live forever but can be replaced via emergency elections.
+    election_term_years = 0 
+    localization_postfix = hive_mind
+    election_type = democratic
+    can_have_emergency_elections = yes
+    emergency_election_cost = 250
+    
+    # There are also factions within this government type as this is just
+    # a group mind whose inhabitants connect to it but are not ultimately
+    # controlled by it
+    has_factions = yes
+    
+    # because it's not a true hive you can switch into this
+    can_reform = yes
+    
+    possible = {
+        ethics = {
+            value = ethic_gestalt_consciousness
+        }
+    }
+    
+    tags = {
+        AUTH_HIVE_MIND_AI_RESTRICTIONS
+        # AUTH_HIVE_MIND_FOREIGN_POP_SURVIVAL
+        # AUTH_HIVE_MIND_GENEMODDING
+        # AUTH_HIVE_MIND_ASCENSION_RESTRICTIONS
+    }
+}
