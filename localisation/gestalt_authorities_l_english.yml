@@ -2,3 +2,51 @@
 
 hive_mind_mental_possible:0 "$TRIGGER_FAIL$Your Hive structure is incapable of the thoughts needed to ascend Psionically."
 hive_mind_robot_possible:0 "$TRIGGER_FAIL$Your Hive structure makes you incapable of assimilating robots into yourself."
+
+# SCRIPTED_LOC localization text AKA
+# What are our organisms' organs called?
+# Paramind and meritmind share and overmind and onemind share usually except for a
+# few instances where overmind uses the vanilla hivemind localizations
+science_ship_paramind:0 "scientist"
+science_ship_onemind:0 "science cell"
+science_ship_paramindplural:0 "scientists"
+science_ship_onemindplural:0 "science cells"
+engineer_ship_paramind:0 "engineer"
+engineer_ship_onemind:0 "engineering cell"
+engineer_ship_paramindplural:0 "engineers"
+engineer_ship_onemindplural:0 "engineering cells"
+envoy_paramind:0 "envoy"
+envoy_onemind:0 "envoy cell"
+envoy_paramindplural:0 "envoys"
+envoy_onemindplural:0 "envoy cells"
+envoy_paramindcap:0 "Envoy"
+envoy_onemindcap:0 "Envoy cell"
+linguist_paramindplural:0 "linguists"
+linguist_onemindplural:0 "language cells"
+researcher_paramindplural:0 "researchers"
+researcher_onemindplural:0 "research neurons"
+teammember_paramind:0 "worker"
+teammember_onemind:0 "cell"
+teammember_paramindplural:0 "workers"
+teammember_onemindplural:0 "cells"
+unitdrone_paramind:0 "Leader"
+unitdrone_onemind:0 "Keystone cell"
+unitdrone_paramindplural:0 "Leaders"
+unitdrone_onemindplural:0 "Keystone cells"
+terraformer_paramind:0 "civil engineer"
+terraformer_onemind:0 "terraforming cell"
+terraformer_paramindplural:0 "civil engineers"
+terraformer_onemindplural:0 "terraforming cells"
+brainname_paramind:0 "Internet"
+# note - base game brain name is "Overmind" so overmind hive does not use one mind brain name
+# yes it does feel kinda stupid to just call it a brain. but that's what it is
+brainname_onemind:0 "Brain"
+tradinghub_paramind:0 "Datacenter"
+# One mind and overmind uses resource reprocessor like with regular hive minds. the name
+# works well enough for what these organisms are trying to convey
+sensorydrones_paramind:0 "scouts"
+sensorydrones_onemind:0 "sensory cells"
+
+
+
+tradinghub_desc_paramind:0 "A docking area where transactions are done over large numbers of servers.\n"
