@@ -1,0 +1,40 @@
+ 
+automate_crime_management_gestalt = {
+	available = {
+		planet_crime > 15
+		owner = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				gestalt_uses_deviancy = yes
+			}
+		}
+		NOT = { has_building = building_sentinel_posts }
+	}
+
+	emergency = yes
+	category = "planet_automation_crime"
+
+	buildings = {
+		precinct = {
+			building = building_sentinel_posts
+		}
+	}
+}
+
+
+automate_hive_spawning_pool = {
+	available = {
+		owner = { gestalt_controls_spawning = yes }
+	}
+
+	emergency = yes
+	category = "planet_automation_pop_assembly"
+
+	buildings = {
+		assembly = {
+			building = building_spawning_pool
+		}
+	}
+}
+
+

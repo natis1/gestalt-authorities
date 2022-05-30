@@ -1,13 +1,31 @@
+# Make gestalt based on the ethics not on authorities.
 is_gestalt = {
     has_ethic = ethic_gestalt_consciousness
 }
+
+# Check if one of the biological hives
 
 is_hive_empire = {
     OR = {
         has_authority = auth_hive_mind
         has_authority = auth_paramind
     }
-} 
+}
+
+
+# Paraminds are considered regular empires for the sake of some game checks
+is_regular_empire = {
+    OR = {
+        is_country_type = default
+        is_country_type = fallen_empire
+        is_country_type = awakened_fallen_empire #for checks in buildings
+    }
+    OR = {
+        NOT = { has_ethic = ethic_gestalt_consciousness	}
+        has_authority = auth_paramind
+    }
+    
+}
 
 gestalt_controls_spawning = {
     OR = {
@@ -29,3 +47,22 @@ gestalt_has_bots = {
         has_authority = auth_paramind
     }
 }
+
+# Criminology organization
+# 
+# Does this gestalt have deviancy? Gestalts without deviancy (or cohesion) use crime and need
+# anti crime buildings built to satisfy their needs. 
+
+gestalt_uses_deviancy = {
+    has_authority = auth_hive_mind
+    has_authority = auth_meritmind
+}
+
+# Does this gestalt use confusion? Unlike crime or deviancy, confusion is reduced by upgrading the
+# bureaucratic center. It cannot be directly targeted with workers, aside from happiness boosting
+# workers.
+
+gestalt_uses_confusion = {
+    has_authority = auth_onemind
+}
+
