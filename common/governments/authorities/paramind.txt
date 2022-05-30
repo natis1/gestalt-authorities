@@ -15,9 +15,15 @@ auth_paramind = {
     # because it's not a true hive you can switch into this
     can_reform = yes
     
+    # Because it selects from the regular perk tree
+    # this is actually not considered a hive mind for
+    # the purposes of government ethics.
+    # meaning you can select regular ethics
     possible = {
         ethics = {
-            value = ethic_gestalt_consciousness
+            NOR = {
+                value = ethic_gestalt_consciousness
+            }
         }
     }
     

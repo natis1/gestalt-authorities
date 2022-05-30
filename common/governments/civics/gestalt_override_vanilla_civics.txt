@@ -1,0 +1,261 @@
+#############
+# Hive Mind
+#############
+
+civic_hive_subspace_ephapse = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    random_weight = { base = 5 }
+    modifier = {
+        country_naval_cap_mult = 0.15
+        ship_speed_mult = 0.20
+    }
+}
+
+civic_hive_natural_neural_network = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    description = "civic_tooltip_natural_neural_network_effects"
+    random_weight = { base = 5 }
+    modifier = {
+        num_tech_alternatives_add = 1
+    }
+}
+
+civic_hive_ascetic = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    random_weight = { base = 5 }
+    modifier = {
+        pop_environment_tolerance = 0.05
+        pop_amenities_usage_no_happiness_mult = -0.15
+    }
+}
+
+civic_hive_one_mind = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    description = "civic_hive_one_mind_effects"
+    random_weight = { base = 5 }
+    modifier = {
+        country_unity_produces_mult = 0.15
+    }
+}
+
+civic_hive_divided_attention = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    random_weight = { base = 5 }
+    modifier = {
+        empire_size_colonies_mult = -0.50
+    }
+}
+
+civic_hive_strength_of_legions = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    random_weight = { base = 5 }
+    description = "civic_tooltip_hive_strength_of_legions_effects"
+    modifier = {
+        army_starting_experience_add = 100
+        army_damage_mult = 0.20
+        armies_upkeep_mult = -0.20
+    }
+}
+
+civic_hive_subsumed_will = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    random_weight = { base = 5 }
+
+    description = "civic_hive_subsumed_will_effects"
+    modifier = {
+        empire_size_pops_mult = -0.20
+        country_edict_fund_add = 25
+    }
+}
+
+civic_hive_pooled_knowledge = {
+    potential = {
+        OR = {
+            authority = { value = auth_meritmind }
+            authority = { value = auth_hive_mind }
+            authority = { value = auth_onemind }
+            authority = { value = auth_overmind }
+        }
+    }
+    random_weight = { base = 5 }
+    modifier = {
+        leader_skill_levels = 1
+        species_leader_exp_gain = 0.1
+        intel_encryption_add = 1
+    }
+}
+
+civic_hive_devouring_swarm = {
+    modification = no
+    potential = {
+        authority = { value = auth_hive_mind }
+    }
+    possible = {
+        origin = {
+            NOR = {
+                value = origin_common_ground
+                value = origin_hegemon
+                value = origin_tree_of_life
+            }
+        }
+    }
+    random_weight = { base = 5 }
+
+    description = "civic_tooltip_devouring_swarm_effects"
+    modifier = {
+        country_starbase_influence_cost_mult = -0.5
+        ship_hull_mult = 0.25
+        ship_hull_regen_add_perc = 0.5
+        ship_armor_regen_add_perc = 0.5
+        army_damage_mult = 0.40
+        category_biology_research_speed_mult = 0.20
+        starbase_shipyard_build_cost_mult = -0.25
+        country_naval_cap_mult = 0.33
+    }
+
+    swap_type = {
+        name = civic_hive_devouring_swarm_lithoid
+        description = "civic_tooltip_devouring_swarm_lithoid_effects"
+
+        trigger = { #No scope in empire creation but still checked. Otherwise, country scope is valid and the latter condition is checked
+            OR = {
+                AND = {
+                    is_scope_valid = no
+                    local_human_species_class = LITHOID
+                }
+                AND = {
+                    is_scope_valid = yes
+                    is_lithoid_empire = yes
+                }
+            }
+        }
+    }
+}
+
+civic_hive_empath = {
+    playable = { host_has_dlc = "Federations" }
+    potential = {
+        authority = { value = auth_hive_mind }
+    }
+    possible = {
+        civics = {
+            NOT = {
+                value = civic_hive_devouring_swarm
+            }
+        }
+        origin = {
+            NOT = {
+                value = origin_necrophage
+            }
+        }
+    }
+
+    description = "civic_tooltip_empath_effects"
+    modifier = {
+        envoys_add = 2
+        diplo_weight_mult = 0.1
+    }
+}
+
+civic_hive_memorialist = {
+    playable = { host_has_dlc = "Necroids Species Pack" }
+    description = "civic_tooltip_memorialist_gestalt_effects"
+    potential = {
+        authority = { value = auth_hive_mind }
+    }
+    random_weight = { base = 5 }
+    possible = {
+        civics = {
+            NOT = { value = civic_hive_devouring_swarm } #Includes Terravore
+        }
+    }
+}
+
+civic_hive_catalytic_processing = {
+    playable = { host_has_dlc = "Plantoids Species Pack" }
+    ai_playable = { host_has_dlc = "Plantoids Species Pack" }
+    description = "civic_tooltip_hive_catalytic_processing_effects"
+    potential = {
+        authority = { value = auth_hive_mind }
+    }
+    possible = {
+        origin = {
+            NOT = {
+                value = origin_lithoid
+            }
+        }
+    }
+    random_weight = { base = 5 }
+}
+
+civic_hive_idyllic_bloom = {
+    modification = no
+    playable = { host_has_dlc = "Plantoids Species Pack" }
+    ai_playable = { host_has_dlc = "Plantoids Species Pack" }
+    description = "civic_tooltip_idyllic_bloom_effects"
+    potential = {
+        authority = { value = auth_hive_mind }
+    }
+    possible = {
+        species_class = {
+            OR = {
+                value = FUN
+                value = PLANT
+            }
+        }
+        origin = {
+            NOT = {
+                value = origin_void_dwellers
+            }
+        }
+    }
+}

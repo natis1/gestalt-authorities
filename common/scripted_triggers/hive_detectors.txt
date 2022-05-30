@@ -66,3 +66,19 @@ gestalt_uses_confusion = {
     has_authority = auth_onemind
 }
 
+# Does this gestalt have access to the regular civics?
+
+gestalt_has_civics = {
+    has_authority = auth_paramind
+}
+
+# Does this gestalt have access to the hive civics
+
+gestalt_hive_civics = {
+    OR = {
+        has_authority = auth_meritmind
+        has_authority = auth_hive_mind
+        has_authority = auth_onemind
+        has_authority = auth_overmind
+    }
+}
