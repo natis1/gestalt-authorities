@@ -47,6 +47,7 @@ building_hive_capital = {
 
     show_tech_unlock_if = {
         is_hive_empire = yes
+        gestalt_paramind_buildings = no
     }
 
     planet_modifier = {
@@ -257,8 +258,8 @@ building_paramind_capital = {
         building_ancient_palace
     }
 
-    upgrades = {
-        "building_hive_major_capital"
+	upgrades = {
+        "building_paramind_major_capital"
     }
 
     prerequisites = {
@@ -266,37 +267,94 @@ building_paramind_capital = {
     }
 
     show_tech_unlock_if = {
-        is_hive_empire = yes
+        gestalt_paramind_buildings = yes
     }
 
-    planet_modifier = {
-        planet_housing_add = 5
-        planet_amenities_add = 8
-        job_synapse_drone_add = 2
-        job_maintenance_drone_add = 2
-        job_patrol_drone_add = 1
-        planet_max_buildings_add = @buildings_t2
-    }
 
-    triggered_planet_modifier = {
-        potential = {
-            owner = { has_origin = origin_progenitor_hive }
-            is_planet_class = pc_hive
-        }
-        job_spawning_drone_add = -1
-        job_offspring_drone_add = 1
-    }
+	planet_modifier = {
+		job_enforcer_add = 1
+		planet_housing_add = 5
+		planet_amenities_add = 5
+		planet_max_buildings_add = @buildings_t2
+		planet_max_branch_office_buildings_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_1 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		job_roboticist_add = 1
+	}
+	
+		triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_exalted_priesthood }
+		}
+		modifier = {
+			job_high_priest_add = 1
+			job_politician_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_aristocratic_elite }
+		}
+		modifier = {
+			job_noble_add = 1
+			job_politician_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_technocracy }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+			job_politician_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_merchant_guilds }
+		}
+		modifier = {
+			job_merchant_add = 1
+			job_politician_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_1 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
+
+
 
     resources = {
         category = planet_buildings
@@ -307,18 +365,77 @@ building_paramind_capital = {
             energy = 2
         }
     }
+    
+    # TODO: Custom triggered desc???
+    
+    	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_exalted_priesthood
+			}
+		}
+		text = job_high_priest_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_aristocratic_elite
+			}
+		}
+		text = job_noble_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_technocracy
+			}
+		}
+		text = job_head_researcher_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_merchant_guilds
+			}
+		}
+		text = job_merchant_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_authority = auth_corporate }
+				is_regular_empire = yes
+			}
+		}
+		text = job_politician_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_synapse_drone_effect_desc
-    }
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		text = job_roboticist_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_maintenance_drone_effect_desc
-    }
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_authority = auth_corporate
+			}
+		}
+		text = job_executive_effect_desc
+	}
+	triggered_desc = {
+		text = job_enforcer_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_patrol_drone_effect_desc
-    }
 }
 
 # Hive Nexus
@@ -348,72 +465,100 @@ building_paramind_major_capital = {
         building_ancient_palace
     }
 
-    upgrades = {
-        "building_imperial_paramind_capital"
-    }
+	# Somewhere between the tier 3 and tier 4 regular capitals
+	planet_modifier = {
+		job_enforcer_add = 3
+		planet_housing_add = 10
+		planet_amenities_add = 10
+		planet_max_buildings_add = @buildings_t4
+		planet_max_branch_office_buildings_add = 3
+	}
 
-    allow = {
-        num_pops >= 25
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
 
-    prerequisites = {
-        "tech_colonial_centralization"
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		job_roboticist_add = 2
+	}
 
-    show_tech_unlock_if = {
-        gestalt_paramind_buildings = yes
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_exalted_priesthood }
+		}
+		modifier = {
+			job_high_priest_add = 1
+			job_politician_add = 2
+		}
+	}
 
-    planet_modifier = {
-        planet_housing_add = 10
-        planet_amenities_add = 12
-        job_synapse_drone_add = 3
-        job_maintenance_drone_add = 5
-        job_patrol_drone_add = 2
-        planet_max_buildings_add = @buildings_t4
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_aristocratic_elite }
+		}
+		modifier = {
+			job_noble_add = 1
+			job_politician_add = 2
+		}
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            owner = { has_origin = origin_progenitor_hive }
-            is_planet_class = pc_hive
-        }
-        job_spawning_drone_add = -1
-        job_offspring_drone_add = 1
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_technocracy }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+			job_politician_add = 2
+		}
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_1 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_merchant_guilds }
+		}
+		modifier = {
+			job_merchant_add = 1
+			job_politician_add = 2
+		}
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_2 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_1 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_3 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_2 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
 
     resources = {
         category = planet_buildings
@@ -424,18 +569,88 @@ building_paramind_major_capital = {
             energy = @b2_upkeep
         }
     }
+    
+    	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_exalted_priesthood
+			}
+		}
+		text = job_high_priest_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_synapse_drone_effect_desc
-    }
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_aristocratic_elite
+			}
+		}
+		text = job_noble_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_maintenance_drone_effect_desc
-    }
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_technocracy
+			}
+		}
+		text = job_head_researcher_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_patrol_drone_effect_desc
-    }
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_merchant_guilds
+			}
+		}
+		text = job_merchant_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_authority = auth_corporate
+					has_civic = civic_exalted_priesthood
+					has_civic = civic_aristocratic_elite
+					has_civic = civic_merchant_guilds
+					has_civic = civic_technocracy
+				}
+			}
+		}
+		text = job_politician_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		text = job_roboticist_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_authority = auth_corporate
+			}
+		}
+		text = job_executive_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_enforcer_effect_desc
+	}
+
+	upgrades = {
+		"building_system_capital"
+	}
 }
 
 
@@ -3279,5 +3494,278 @@ building_imperial_hive_capital = {
 # 08
 
 
+# Sacrificial Temple (basic)
+building_sacrificial_temple_1 = {
+	base_buildtime = @b1_time
+	position_priority = 100
 
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			is_death_cult_empire = yes
+		}
+		NOT = { has_modifier = slave_colony }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				is_death_cult_empire = no
+			}
+			has_modifier = slave_colony
+		}
+	}
+
+	convert_to = {
+        building_paramind_node
+		building_bureaucratic_1
+		building_temple
+		building_hive_node
+		building_uplink_node
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.05
+		job_death_priest_add = 1
+		job_mortal_initiate_add = 1
+	}
+
+	triggered_desc = { text = job_death_priest_effect_desc }
+
+	triggered_desc = { text = job_mortal_initiate_effect_desc }
+
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+
+	upgrades = {
+		building_sacrificial_temple_2
+	}
+
+	show_tech_unlock_if = {
+		is_death_cult_empire = yes
+	}
+}
+
+# Grim Holotemple
+building_sacrificial_temple_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	position_priority = 100
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_death_cult_empire = yes
+		}
+	}
+
+	allow = {
+		exists = owner
+		has_upgraded_capital = yes
+		owner = {
+			is_death_cult_empire = yes
+		}
+		NOT = { has_modifier = slave_colony }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_exotic_gases = yes
+			owner = {
+				is_death_cult_empire = no
+			}
+			has_modifier = slave_colony
+		}
+	}
+
+	convert_to = {
+        building_paramind_cluster
+		building_bureaucratic_2
+		building_holotemple
+		building_hive_cluster
+		building_network_junction
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b3_rare_upkeep
+		}
+	}
+
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.1
+		job_death_priest_add = 1
+		job_mortal_initiate_add = 1
+	}
+
+	triggered_desc = { text = job_death_priest_effect_desc }
+
+	triggered_desc = { text = job_mortal_initiate_effect_desc }
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_megacorp = no }
+		}
+		modifier = {
+			job_death_priest_add = 1
+			job_mortal_initiate_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_megacorp = yes }
+		}
+		modifier = {
+			job_manager_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_megacorp = yes }
+		}
+		text = job_manager_effect_desc
+	}
+
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+
+	upgrades = {
+		building_sacrificial_temple_3
+	}
+
+	show_tech_unlock_if = {
+		is_death_cult_empire = yes
+	}
+}
+
+# Temple of Grand Sacrifice
+building_sacrificial_temple_3 = {
+	base_buildtime = @b3_time
+	can_build = no
+	position_priority = 100
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			is_death_cult_empire = yes
+		}
+		NOT = { has_modifier = slave_colony }
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_exotic_gases = yes
+			owner = {
+				 is_death_cult_empire = no
+			}
+			has_modifier = slave_colony
+		}
+	}
+
+	convert_to = {
+        building_paramind_confluence
+		building_hypercomms_forum
+		building_hive_confluence
+		building_simulation_3
+		building_corporate_forum
+		building_sacred_nexus
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			exotic_gases = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			exotic_gases = @b3_rare_upkeep
+			volatile_motes = @b2_rare_upkeep
+		}
+	}
+
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.15
+		job_death_priest_add = 2
+		job_mortal_initiate_add = 2
+	}
+
+	triggered_desc = { text = job_death_priest_effect_desc }
+
+	triggered_desc = { text = job_mortal_initiate_effect_desc }
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_megacorp = no }
+		}
+		modifier = {
+			job_death_priest_add = 1
+			job_mortal_initiate_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_megacorp = yes }
+		}
+		modifier = {
+			job_manager_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_megacorp = yes }
+		}
+		text = job_manager_effect_desc
+	}
+
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	show_tech_unlock_if = {
+		is_death_cult_empire = yes
+	}
+}
 

@@ -27,12 +27,6 @@ is_regular_empire = {
     
 }
 
-gestalt_controls_spawning = {
-    OR = {
-        has_authority = auth_hive_mind
-    }
-}
-
 gestalt_can_ascend = {
     OR = {
         has_authority = auth_hive_mind

@@ -1,0 +1,2043 @@
+
+
+
+# Foundries produce consumer goods for paraminds
+
+building_foundry_1 = {
+    base_buildtime = @b1_time
+    base_cap_amount = 1
+    category = manufacturing
+
+    potential = {
+        NOT = { has_modifier = resort_colony }
+        NOT = { has_modifier = slave_colony }
+        OR = {
+            owner = {
+                is_ai = no
+            }	
+            has_any_industry_district = yes
+        }
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            AND = {
+                owner = {
+                    is_ai = yes
+                }
+                has_any_industry_district = no
+            }
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_alloy_drone_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_fabricator_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_catalytic_empire = yes
+            }
+        }
+        modifier = {
+            job_catalytic_drone_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_foundry_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = yes
+            }
+        }
+        modifier = {
+            job_catalytic_technician_add = @b1_jobs
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b1_minerals
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+
+    upgrades = {
+        building_foundry_2
+    }
+
+    prerequisites = {
+        tech_basic_industry
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        text = job_foundry_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_catalytic_technician_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        text = job_alloy_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        text = job_fabricator_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_catalytic_drone_effect_desc
+    }
+
+    ai_resource_production = {
+        alloys = 8
+        trigger = {
+            planet_resource_compare = {
+                resource = alloys
+                value >= 20
+                type = produces
+            }
+        }
+    }
+}
+
+
+building_foundry_2 = {
+    base_buildtime = @b2_time
+    can_build = no
+    category = manufacturing
+
+    allow = {
+        has_upgraded_capital = yes
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            AND = {
+                exists = owner
+                buildings_no_motes = yes
+            }
+            AND = {
+                owner = {
+                    is_ai = yes
+                }
+                has_any_industry_district = no
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            volatile_motes = @b3_rare_cost
+        }
+        upkeep = {
+            energy = @b2_upkeep
+            volatile_motes = @b3_rare_upkeep
+        }
+    }
+
+    upgrades = {
+        building_foundry_3
+    }
+
+    prerequisites = {
+        tech_alloys_1
+    }
+
+    planet_modifier = {
+        planet_metallurgists_alloys_produces_add = 1
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            planet_metallurgists_minerals_upkeep_add = 2
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_foundry_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = yes
+            }
+        }
+        modifier = {
+            planet_metallurgists_food_upkeep_add = 3
+            job_catalytic_technician_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_alloy_drone_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_fabricator_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_catalytic_empire = yes
+            }
+        }
+        modifier = {
+            planet_metallurgists_food_upkeep_add = 3
+            job_catalytic_drone_add = @b1_jobs
+        }
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        text = job_foundry_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_catalytic_technician_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        text = job_alloy_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        text = job_fabricator_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_catalytic_drone_effect_desc
+    }
+}
+
+building_foundry_3 = {
+    base_buildtime = @b3_time
+    can_build = no
+    category = manufacturing
+
+    allow = {
+        has_major_upgraded_capital = yes
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            AND = {
+                exists = owner
+                buildings_no_motes = yes
+            }
+            AND = {
+                exists = owner
+                owner = {
+                    is_ai = yes
+                }
+                has_any_industry_district = no
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b3_minerals
+            volatile_motes = @b4_rare_cost
+        }
+        upkeep = {
+            energy = @b3_upkeep
+            volatile_motes = @b4_rare_upkeep
+        }
+    }
+
+    prerequisites = {
+        tech_alloys_2
+    }
+
+    planet_modifier = {
+        planet_metallurgists_alloys_produces_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            planet_metallurgists_minerals_upkeep_add = 4
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_foundry_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = yes
+            }
+        }
+        modifier = {
+            planet_metallurgists_food_upkeep_add = 6
+            job_catalytic_technician_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_alloy_drone_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        modifier = {
+            job_fabricator_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_catalytic_empire = yes
+            }
+        }
+        modifier = {
+            planet_metallurgists_food_upkeep_add = 6
+            job_catalytic_drone_add = @b1_jobs
+        }
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        text = job_foundry_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_catalytic_technician_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        text = job_alloy_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        text = job_fabricator_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_catalytic_drone_effect_desc
+    }
+
+building_production_center = {
+    base_buildtime = @b2_time
+    base_cap_amount = 1
+
+    category = manufacturing
+
+    potential = {
+        exists = owner
+        owner = { is_gestalt = yes }
+        OR = {
+            owner = { is_ai = no }
+            has_any_industry_district = yes
+        }
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            owner = { is_gestalt = no }
+            buildings_no_motes = yes
+            AND = {
+                owner = { is_ai = yes }
+                has_any_industry_district = no
+            }
+        }
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+    }
+
+    planet_modifier = {
+        planet_metallurgists_produces_mult = 0.15
+        planet_artisans_produces_mult = 0.15
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            volatile_motes = @b2_rare_cost
+        }
+        upkeep = {
+            energy = @b2_upkeep
+            volatile_motes = @b2_rare_upkeep
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        job_alloy_drone_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = yes
+            }
+        }
+        job_catalytic_drone_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        job_fabricator_add = 1
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = yes
+            }
+        }
+        job_catalytic_drone_add = 1
+    }
+
+    prerequisites = {
+        "tech_global_production_strategy"
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        text = job_alloy_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        text = job_fabricator_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_catalytic_drone_effect_desc
+    }
+
+    show_tech_unlock_if = {
+        is_gestalt = yes
+    }
+
+    ai_resource_production = {
+        alloys = 6
+        trigger = {
+            planet_resource_compare = {
+                resource = alloys
+                value >= 40
+                type = produces
+            }
+        }
+    }
+    ai_resource_production = {
+        consumer_goods = 8
+        trigger = {
+            owner = { country_uses_consumer_goods = yes }
+            planet_resource_compare = {
+                resource = consumer_goods
+                value >= 50
+                type = produces
+            }
+        }
+    }
+}
+
+
+# Science buildings. 05_research_buildings
+
+building_research_lab_1 = {
+    base_buildtime = @b1_time
+
+    exempt_from_ai_planet_specialization = no
+
+    category = research
+
+    potential = {
+        NOT = { has_modifier = resort_colony }
+        NOT = { has_modifier = slave_colony }
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_regular_empire = yes }
+        }
+        modifier = {
+            job_researcher_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        modifier = {
+            job_brain_drone_add = @b1_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        modifier = {
+            job_calculator_add = @b1_jobs
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b1_minerals
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+
+    upgrades = {
+        "building_research_lab_2"
+    }
+
+    prerequisites = {
+        "tech_basic_science_lab_1"
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_regular_empire = yes }
+        }
+        text = job_researcher_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        text = job_brain_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        text = job_calculator_effect_desc
+    }
+}
+
+building_research_lab_2 = {
+    base_buildtime = @b2_time
+    can_build = no
+
+    category = research
+
+    allow = {
+        has_upgraded_capital = yes
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+            buildings_no_exotic_gases = yes
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_regular_empire = yes }
+        }
+        modifier = {
+            job_researcher_add = @b2_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        modifier = {
+            job_brain_drone_add = @b2_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        modifier = {
+            job_calculator_add = @b2_jobs
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            exotic_gases = @b2_rare_cost
+        }
+        upkeep = {
+            energy = @b2_upkeep
+            exotic_gases = @b2_rare_upkeep
+        }
+    }
+
+    upgrades = {
+        "building_research_lab_3"
+    }
+
+    prerequisites = {
+        "tech_basic_science_lab_2"
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_regular_empire = yes }
+        }
+        text = job_researcher_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        text = job_brain_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        text = job_calculator_effect_desc
+    }
+}
+
+building_research_lab_3 = {
+    base_buildtime = @b3_time
+    can_build = no
+
+    category = research
+
+    allow = {
+        has_major_upgraded_capital = yes
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = slave_colony
+            has_modifier = resort_colony
+            buildings_no_exotic_gases = yes
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_regular_empire = yes }
+        }
+        modifier = {
+            job_researcher_add = @b3_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        modifier = {
+            job_brain_drone_add = @b3_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        modifier = {
+            job_calculator_add = @b3_jobs
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_regular_empire = yes
+                is_galactic_community_member = yes
+            }
+            is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+            has_modifier = pm_extradimensional_experimentation
+        }
+        modifier = {
+            job_dimensional_portal_researcher_add = 1
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = yes
+                is_galactic_community_member = yes
+            }
+            is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+            has_modifier = pm_extradimensional_experimentation
+        }
+        modifier = {
+            job_dimensional_portal_researcher_gestalt_add = 1
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b3_minerals
+            exotic_gases = @b3_rare_cost
+        }
+        upkeep = {
+            energy = @b3_upkeep
+            exotic_gases = @b3_rare_upkeep
+        }
+        upkeep = {
+            trigger = {
+                owner = {
+                    is_galactic_community_member = yes
+                }
+                is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+                planet = {
+                    has_modifier = pm_extradimensional_experimentation
+                }
+            }
+            sr_zro = 1
+        }
+    }
+
+    prerequisites = {
+        "tech_basic_science_lab_3"
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_regular_empire = yes }
+        }
+        text = job_researcher_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        text = job_brain_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        text = job_calculator_effect_desc
+    }
+}
+
+
+building_supercomputer = {
+    base_buildtime = @b2_time
+    base_cap_amount = 1
+    icon = building_institute
+
+    category = research
+
+    potential = {
+        exists = owner
+        owner = { is_gestalt = yes }
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = { is_regular_empire = yes }
+        }
+    }
+
+    convert_to = {
+        building_institute
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+        }
+        upkeep = {
+            energy = @b2_upkeep
+        }
+    }
+
+    planet_modifier = {
+        planet_researchers_produces_mult = 0.15
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        modifier = {
+            job_brain_drone_add = 1
+        }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        modifier = {
+            job_calculator_add = 1
+        }
+    }
+
+    prerequisites = {
+        "tech_global_research_initiative"
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        text = job_brain_drone_effect_desc
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        text = job_calculator_effect_desc
+    }
+
+    show_tech_unlock_if = {
+        is_gestalt = yes
+    }
+    
+    ai_resource_production = {
+        trigger = {
+            planet_resource_compare = {
+                resource = physics_research
+                value >= 20
+            }
+        }
+        physics_research = 3
+        society_research = 3
+        engineering_research = 3
+    }
+    ai_resource_production = {
+        trigger = {
+            planet_resource_compare = {
+                resource = physics_research
+                value >= 40
+            }
+        }
+        physics_research = 3
+        society_research = 3
+        engineering_research = 3
+    }
+}
+
+# No hive warrens
+
+
+#Hive housing
+building_hive_warren = {
+    base_buildtime = @b1_time
+
+    category = amenity
+
+    potential = {
+        exists = owner
+        owner = { is_hive_empire = yes }
+        owner = { gestalt_paramind_buildings = no }
+    }
+
+    allow = {
+        buildings_simple_allow = yes
+    }
+
+    destroy_trigger = {
+        exists = owner
+        gestalt_paramind_buildings = yes
+        OR = {
+            AND = {
+                owner = { is_ai = yes }
+                years_passed < 3
+            }#Blow up the one on the homeworld.
+            AND = {
+                planet = {
+                    free_building_slots = 0
+                    free_jobs < 1
+                    free_housing > 10
+                    owner = {
+                        is_ai = yes
+                    }
+                }
+            }
+            NOR = {
+                owner = { is_hive_empire = yes }
+            }
+        }
+    }
+
+    convert_to = {
+        building_luxury_residence
+        building_drone_storage
+        building_communal_housing
+    }
+
+    planet_modifier = {
+        planet_housing_add = 3
+        planet_amenities_add = 5
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b1_minerals
+        }
+        upkeep = {
+            energy = 2
+        }
+    }
+
+    upgrades = {
+        "building_expanded_warren"
+    }
+}
+
+building_expanded_warren = {
+    base_buildtime = @b2_time
+    can_build = no
+
+    category = amenity
+
+    potential = {
+        has_building = building_hive_warren
+        owner = { gestalt_paramind_buildings = no }
+    }
+
+    allow = {
+        has_upgraded_capital = yes
+    }
+
+    show_tech_unlock_if = {
+        owner = { is_hive_empire = yes }
+        owner = { gestalt_paramind_buildings = no }
+    }
+
+    destroy_trigger = {
+        exists = owner
+        buildings_no_crystals = yes
+    }
+
+    convert_to = {
+        building_paradise_dome
+        building_drone_megastorage
+        building_communal_housing_large
+    }
+
+    planet_modifier = {
+        planet_housing_add = 6
+        planet_amenities_add = 10
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_active_tradition = tr_domination_imperious_architecture
+            }
+        }
+        modifier = {
+            planet_housing_add = 1
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        cost = {
+            minerals = @b2_minerals
+            rare_crystals = @b2_rare_cost
+        }
+        upkeep = {
+            energy = 3
+            rare_crystals = @b2_rare_upkeep
+        }
+    }
+
+
+    prerequisites = {
+        "tech_housing_2"
+    }
+}
+
+# Spawning pools are allowed buildings for non paraminds
+building_spawning_pool = {
+    potential = {
+        exists = owner
+        owner = { 
+            is_hive_empire = yes
+            gestalt_paramind_buildings = no
+            
+            NOT = { has_origin = origin_progenitor_hive }
+        }
+        or = {
+            num_buildings = { type = any value < 15 }
+            owner = { is_ai = no }
+        }
+    }
+
+    destroy_trigger = {
+        exists = owner
+        owner = { 
+            OR = {
+                is_hive_empire = no
+                gestalt_paramind_buildings = no
+                has_origin = origin_progenitor_hive
+            }
+        }
+    }
+}
+
+# 08 Unity Buildings. Excluding the custom paramind ones
+
+building_sensorium_1 = {
+    base_buildtime = @b1_time
+    base_cap_amount = 1
+    icon = building_holo_theatres
+
+    category = unity
+
+    potential = {
+        exists = owner
+        NOT = { has_modifier = slave_colony }
+        owner = {
+            is_hive_empire = yes
+            gestalt_paramind_buildings = no
+            is_memorialist_empire = no
+        }
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    is_hive_empire = no
+                    gestalt_paramind_buildings = yes
+                    is_memorialist_empire = yes
+                }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        produces = {
+            trigger = { exists = owner }
+            unity = 1
+            multiplier = owner.trigger:num_ascension_perks
+        }
+        cost = {
+            minerals = @b1_minerals
+        }
+    }
+
+    planet_modifier = {
+        planet_jobs_unity_produces_mult = 0.05
+    }
+
+    triggered_desc = {
+        text = building_autochthon_monument_effect
+    }
+
+    prerequisites = {
+        "tech_hive_node"
+    }
+
+    convert_to = {
+        building_autochthon_monument
+        building_corporate_monument
+        building_galactic_memorial_1
+        building_simulation_1
+    }
+
+    show_tech_unlock_if = {
+        is_hive_empire = yes
+        gestalt_paramind_buildings = no
+        is_memorialist_empire = no
+    }
+
+    upgrades = {
+        building_sensorium_2
+    }
+}
+
+building_sensorium_2 = {
+    base_buildtime = @b2_time
+    can_build = no
+    icon = building_hyper_entertainment_forum
+
+    category = unity
+
+    potential = {
+        exists = owner
+        NOT = { has_modifier = slave_colony }
+        owner = {
+            is_hive_empire = yes
+            gestalt_paramind_buildings = no
+            is_memorialist_empire = no
+        }
+    }
+
+    allow = {
+        has_upgraded_capital = yes
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    is_hive_empire = no
+                    gestalt_paramind_buildings = yes
+                    is_memorialist_empire = yes
+                }
+            }
+        }
+    }
+
+    convert_to = {
+        building_corporate_site
+        building_heritage_site
+        building_galactic_memorial_2
+        building_simulation_2
+    }
+
+    resources = {
+        category = planet_buildings
+        produces = {
+            trigger = { exists = owner }
+            unity = 2
+            multiplier = owner.trigger:num_ascension_perks
+        }
+        cost = {
+            minerals = @b2_minerals
+        }
+    }
+
+    planet_modifier = {
+        planet_jobs_unity_produces_mult = 0.10
+    }
+
+    triggered_desc = {
+        text = building_heritage_site_effect
+    }
+
+    prerequisites = {
+        "tech_hive_cluster"
+    }
+
+    show_tech_unlock_if = {
+        is_hive_empire = yes
+        gestalt_paramind_buildings = no
+        is_memorialist_empire = no
+    }
+
+    upgrades = {
+        building_sensorium_3
+    }
+}
+
+building_sensorium_3 = {
+    base_buildtime = @b3_time
+    can_build = no
+    icon = building_citadel_of_faith
+
+    category = unity
+
+    potential = {
+        exists = owner
+        NOT = { has_modifier = slave_colony }
+        owner = {
+            is_hive_empire = yes
+            gestalt_paramind_buildings = no
+            is_memorialist_empire = no
+        }
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    is_hive_empire = no
+                    gestalt_paramind_buildings = yes
+                    is_memorialist_empire = yes
+                }
+            }
+        }
+    }
+
+    convert_to = {
+        building_corporate_forum
+        building_hypercomms_forum
+        building_galactic_memorial_3
+        building_simulation_3
+    }
+
+    resources = {
+        category = planet_buildings
+        produces = {
+            trigger = { exists = owner }
+            unity = 3
+            multiplier = owner.trigger:num_ascension_perks
+        }
+        cost = {
+            minerals = @b3_minerals
+        }
+    }
+
+    planet_modifier = {
+        planet_jobs_unity_produces_mult = 0.15
+    }
+
+    triggered_desc = {
+        text = building_hypercomms_forum_effect
+    }
+
+    prerequisites = {
+        "tech_hive_confluence"
+    }
+
+    show_tech_unlock_if = {
+        is_hive_empire = yes
+        gestalt_paramind_buildings = no
+        is_memorialist_empire = no
+    }
+}
+
+# Event buildings. Since we use regular happiness needed here
+
+building_artist_patron = {
+    base_buildtime = @b2_time
+    can_demolish = yes
+    base_cap_amount = 1
+
+    potential = {
+        custom_tooltip = {
+            text = EMPIRE_UNIQUE_BUILDING
+            owner = {
+                has_country_flag = artist_building_patron
+                NOT = {
+                    has_country_flag = built_one_ministry
+                }
+            }
+        }
+        NOT = { has_modifier = slave_colony }
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+        }
+        planet_jobs_unity_produces_mult = 0.15
+        job_culture_worker_add = 3
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        planet_jobs_unity_produces_mult = 0.15
+        job_synapse_drone_add = 3
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        planet_jobs_unity_produces_mult = 0.15
+        job_evaluator_add = 3
+    }
+
+    resources = {
+        category = planet_buildings
+        upkeep = {
+            energy = 2
+        }
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_gestalt = no }
+        }
+        text = job_culture_worker_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_hive_empire = yes }
+            owner = { gestalt_paramind_buildings = no }
+        }
+        text = job_synapse_drone_effect_desc
+    }
+    triggered_desc = {
+        trigger = {
+            exists = owner
+            owner = { is_machine_empire = yes }
+        }
+        text = job_evaluator_effect_desc
+    }
+
+    desc = {
+        trigger = {
+            exists = owner
+            owner = { is_gestalt = no }
+        }
+        text = building_artist_patron_desc
+    }
+
+    desc = {
+        trigger = {
+            exists = owner
+            owner = { is_gestalt = yes }
+        }
+        text = building_artist_patron_gestalt_desc
+    }
+
+    on_queued = {
+        owner = { remove_country_flag = artist_building_patron }
+    }
+
+    on_unqueued = {
+        owner = { set_country_flag = artist_building_patron }
+    }
+
+    on_built = {
+        owner = { set_country_flag = built_one_ministry }
+    }
+
+    on_destroy = {
+        owner = {
+            if = {
+                limit = {
+                    has_country_flag = built_one_ministry
+                }
+                remove_country_flag = built_one_ministry
+                set_country_flag = artist_building_patron
+            }
+        }
+    }
+}
+
+# Overlord DLC bullshit
+
+holding_offspring_nest = {
+    base_buildtime = @b2_time
+    owner_type = subject_holding
+    icon = building_offspring_nest
+    base_cap_amount = 1
+
+    resources = {
+        category = planet_holdings
+        cost = {
+            minerals = @b1_minerals
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+
+    potential = {
+        owner.overlord = {
+            is_hive_empire = yes
+            gestalt_paramind_buildings = no
+            has_origin = origin_progenitor_hive
+        }
+        has_overlord_dlc = yes
+    }
+
+    allow = {
+        owner = {
+            NOT = { has_origin = origin_progenitor_hive }
+        }
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = { is_gestalt = no }
+        }
+        job_overlord_offspring_drone_feeder_add = 1
+    }
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = { is_gestalt = yes }
+        }
+        job_overlord_offspring_drone_feeder_drone_add = 1
+    }
+    triggered_desc = {
+        text = job_overlord_offspring_drone_feeder_effect_desc
+    }
+}
+
+
+holding_offworld_foundry = {
+    base_buildtime = @b2_time
+    owner_type = subject_holding
+    icon = holding_offworld_foundry
+    base_cap_amount = 1
+
+    potential = {
+        has_overlord_dlc = yes
+    }
+
+    allow = {
+        custom_tooltip = {
+            fail_text = subject_is_prospectorium
+            exists = planet.owner
+            planet.owner = {
+                is_specialist_subject_type = { TYPE = prospectorium }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_holdings
+        cost = {
+            minerals = @b1_minerals
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+
+    planet_modifier = {
+        monthly_loyalty = -1.5
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_gestalt = no
+                is_catalytic_empire = no
+            }
+        }
+        job_overlord_metallurgist_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                
+                is_catalytic_empire = no
+            }
+        }
+        job_overlord_foundry_drone_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        job_overlord_fabricator_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = yes
+                is_gestalt = no
+            }
+        }
+        job_overlord_catalytic_technician_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = yes
+                is_gestalt = yes
+            }
+        }
+        job_overlord_catalytic_drone_add = 2
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = no
+            }
+        }
+        text = job_overlord_alloy_producer_effect_desc
+    }
+
+    destroy_trigger = {
+        exists = planet.owner
+        planet.owner = {
+            NOT = {
+                is_specialist_subject_type = { TYPE = prospectorium }
+            }
+        }
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_overlord_alloy_producer_catalytic_effect_desc
+    }
+}
+
+holding_splinter_hive = {
+    base_buildtime = @b2_time
+    owner_type = subject_holding
+    icon = holding_splinter_hive
+    base_cap_amount = 1
+
+    potential = {
+        has_overlord_dlc = yes
+    }
+
+    resources = {
+        category = planet_holdings
+        cost = {
+            minerals = @b1_minerals
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+
+    potential = {
+        owner.overlord = { is_hive_empire = yes }
+        owner.overlord = { gestalt_paramind_buildings = no }
+        
+    }
+
+    allow = {
+        custom_tooltip = {
+            fail_text = no_free_district_for_splinter_hive
+            planet = {
+                num_free_districts = {
+                    type = any
+                    value > 0
+                }
+            }
+        }
+    }
+
+    planet_modifier = {
+        monthly_loyalty = -2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = { is_gestalt = no }
+        }
+        job_overlord_breeder_add = 1
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = { is_gestalt = yes }
+        }
+        job_overlord_breeder_drone_add = 1
+    }
+
+    on_built = {
+        planet = {
+            add_blocker = { type = d_spawning_complex_blocker }
+            owner.overlord.capital_scope = {
+                append_symbiotic_link = yes
+                refresh_splinter_hive_modifier = yes
+            }
+        }
+    }
+
+    on_destroy = {
+        planet = {
+            if = {
+                limit = { has_deposit = d_spawning_complex_blocker }
+                remove_deposit = d_spawning_complex_blocker
+            }
+            owner.overlord.capital_scope = {
+                remove_symbiotic_link = yes
+                refresh_splinter_hive_modifier = yes
+            }
+        }
+    }
+
+    triggered_desc = {
+        text = job_overlord_breeder_effect_desc
+    }
+}
+
+holding_offworld_foundry = {
+    base_buildtime = @b2_time
+    owner_type = subject_holding
+    icon = holding_offworld_foundry
+    base_cap_amount = 1
+
+    potential = {
+        has_overlord_dlc = yes
+    }
+
+    allow = {
+        custom_tooltip = {
+            fail_text = subject_is_prospectorium
+            exists = planet.owner
+            planet.owner = {
+                is_specialist_subject_type = { TYPE = prospectorium }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_holdings
+        cost = {
+            minerals = @b1_minerals
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+
+    planet_modifier = {
+        monthly_loyalty = -1.5
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_gestalt = no
+                is_catalytic_empire = no
+            }
+        }
+        job_overlord_metallurgist_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_hive_empire = yes
+                gestalt_paramind_buildings = no
+                is_catalytic_empire = no
+            }
+        }
+        job_overlord_foundry_drone_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_machine_empire = yes
+                is_catalytic_empire = no
+            }
+        }
+        job_overlord_fabricator_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = yes
+                is_gestalt = no
+            }
+        }
+        job_overlord_catalytic_technician_add = 2
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = yes
+                is_gestalt = yes
+            }
+        }
+        job_overlord_catalytic_drone_add = 2
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = no
+            }
+        }
+        text = job_overlord_alloy_producer_effect_desc
+    }
+
+    destroy_trigger = {
+        exists = planet.owner
+        planet.owner = {
+            NOT = {
+                is_specialist_subject_type = { TYPE = prospectorium }
+            }
+        }
+    }
+
+    triggered_desc = {
+        trigger = {
+            exists = planet.owner
+            planet.owner = {
+                is_catalytic_empire = yes
+            }
+        }
+        text = job_overlord_alloy_producer_catalytic_effect_desc
+    }
+}
