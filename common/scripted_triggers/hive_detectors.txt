@@ -82,3 +82,8 @@ gestalt_hive_civics = {
         has_authority = auth_overmind
     }
 }
+
+gestalt_paramind_buildings = {
+    has_authority = auth_paramind
+}
+
