@@ -1,274 +1,274 @@
 
 building_hive_capital = {
-    capital = yes
-    can_build = no
-    can_demolish = no
-    can_be_ruined = no
-    can_be_disabled = no
-    position_priority = 0
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
 
-    category = government
+	category = government
 
-    potential = {
-        exists = owner
-        owner = {
-            OR = {
-                is_hive_empire = yes
-                is_country_type = swarm
-            }
-            is_fallen_empire = no
-            gestalt_paramind_buildings = no
-        }
-    }
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_hive_empire = yes
+				is_country_type = swarm
+			}
+			is_fallen_empire = no
+			gestalt_paramind_buildings = no
+		}
+	}
 
-    destroy_trigger = { # destroys and/or triggers conversion if true
-        exists = owner
-        OR = {
-            owner = { is_hive_empire = no }
-            owner = {gestalt_paramind_buildings = yes}
-        }
-    }
+	destroy_trigger = { # destroys and/or triggers conversion if true
+		exists = owner
+		OR = {
+			owner = { is_hive_empire = no }
+			owner = {gestalt_paramind_buildings = yes}
+		}
+	}
 
-    convert_to = {
-        building_hive_capital
-        building_machine_capital
-        building_capital
-        building_ancient_control_center
-        building_ancient_palace
-    }
+	convert_to = {
+		building_hive_capital
+		building_machine_capital
+		building_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
 
-    upgrades = {
-        "building_hive_major_capital"
-    }
+	upgrades = {
+		"building_hive_major_capital"
+	}
 
-    prerequisites = {
-        "tech_planetary_government"
-    }
+	prerequisites = {
+		"tech_planetary_government"
+	}
 
-    show_tech_unlock_if = {
-        is_hive_empire = yes
-        gestalt_paramind_buildings = no
-    }
+	show_tech_unlock_if = {
+		is_hive_empire = yes
+		gestalt_paramind_buildings = no
+	}
 
-    planet_modifier = {
-        planet_housing_add = 5
-        planet_amenities_add = 8
-        job_synapse_drone_add = 2
-        job_maintenance_drone_add = 2
-        job_patrol_drone_add = 1
-        planet_max_buildings_add = @buildings_t2
-    }
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_amenities_add = 8
+		job_synapse_drone_add = 2
+		job_maintenance_drone_add = 2
+		job_patrol_drone_add = 1
+		planet_max_buildings_add = @buildings_t2
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            owner = { has_origin = origin_progenitor_hive }
-            is_planet_class = pc_hive
-        }
-        job_spawning_drone_add = -1
-        job_offspring_drone_add = 1
-    }
+	triggered_planet_modifier = {
+		potential = {
+			owner = { has_origin = origin_progenitor_hive }
+			is_planet_class = pc_hive
+		}
+		job_spawning_drone_add = -1
+		job_offspring_drone_add = 1
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_1 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_1 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
 
-    resources = {
-        category = planet_buildings
-        cost = {
-            minerals = 1000
-        }
-        upkeep = {
-            energy = 2
-        }
-    }
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
 
-    triggered_desc = {
-        text = job_synapse_drone_effect_desc
-    }
+	triggered_desc = {
+		text = job_synapse_drone_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_maintenance_drone_effect_desc
-    }
+	triggered_desc = {
+		text = job_maintenance_drone_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_patrol_drone_effect_desc
-    }
+	triggered_desc = {
+		text = job_patrol_drone_effect_desc
+	}
 }
 
 # Hive Nexus
 building_hive_major_capital = {
-    base_buildtime = @b2_time
-    capital = yes
-    can_build = no
-    can_demolish = no
-    can_be_ruined = no
-    can_be_disabled = no
-    position_priority = 0
+	base_buildtime = @b2_time
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
 
-    category = government
+	category = government
 
-    potential = {
-        exists = owner
-        owner = {
-            OR = {
-                is_hive_empire = yes
-                is_country_type = swarm
-            }
-            is_fallen_empire = no
-            gestalt_paramind_buildings = no
-        }
-    }
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_hive_empire = yes
+				is_country_type = swarm
+			}
+			is_fallen_empire = no
+			gestalt_paramind_buildings = no
+		}
+	}
 
-    convert_to = {
-        building_paramind_major_capital
-        building_machine_major_capital
-        building_major_capital
-        building_ancient_control_center
-        building_ancient_palace
-    }
+	convert_to = {
+		building_paramind_major_capital
+		building_machine_major_capital
+		building_major_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
 
-    upgrades = {
-        "building_imperial_hive_capital"
-    }
+	upgrades = {
+		"building_imperial_hive_capital"
+	}
 
-    allow = {
-        num_pops >= 25
-    }
+	allow = {
+		num_pops >= 25
+	}
 
-    prerequisites = {
-        "tech_colonial_centralization"
-    }
+	prerequisites = {
+		"tech_colonial_centralization"
+	}
 
-    show_tech_unlock_if = {
-        is_hive_empire = yes
-        gestalt_paramind_buildings = no
-    }
+	show_tech_unlock_if = {
+		is_hive_empire = yes
+		gestalt_paramind_buildings = no
+	}
 
-    planet_modifier = {
-        planet_housing_add = 10
-        planet_amenities_add = 12
-        job_synapse_drone_add = 3
-        job_maintenance_drone_add = 5
-        job_patrol_drone_add = 2
-        planet_max_buildings_add = @buildings_t4
-    }
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_amenities_add = 12
+		job_synapse_drone_add = 3
+		job_maintenance_drone_add = 5
+		job_patrol_drone_add = 2
+		planet_max_buildings_add = @buildings_t4
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            owner = { has_origin = origin_progenitor_hive }
-            is_planet_class = pc_hive
-        }
-        job_spawning_drone_add = -1
-        job_offspring_drone_add = 1
-    }
+	triggered_planet_modifier = {
+		potential = {
+			owner = { has_origin = origin_progenitor_hive }
+			is_planet_class = pc_hive
+		}
+		job_spawning_drone_add = -1
+		job_offspring_drone_add = 1
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_1 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_1 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_2 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_2 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
 
-    triggered_planet_modifier = {
-        potential = {
-            exists = owner
-            owner = { has_technology = tech_capital_productivity_3 }
-        }
-        modifier = {
-            planet_jobs_productive_upkeep_mult = 0.1
-            planet_jobs_productive_produces_mult = 0.1
-        }
-    }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_3 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
 
-    resources = {
-        category = planet_buildings
-        cost = {
-            minerals = @b2_minerals
-        }
-        upkeep = {
-            energy = @b2_upkeep
-        }
-    }
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+	}
 
-    triggered_desc = {
-        text = job_synapse_drone_effect_desc
-    }
+	triggered_desc = {
+		text = job_synapse_drone_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_maintenance_drone_effect_desc
-    }
+	triggered_desc = {
+		text = job_maintenance_drone_effect_desc
+	}
 
-    triggered_desc = {
-        text = job_patrol_drone_effect_desc
-    }
+	triggered_desc = {
+		text = job_patrol_drone_effect_desc
+	}
 }
 
 
 building_paramind_capital = {
-    capital = yes
-    can_build = no
-    can_demolish = no
-    can_be_ruined = no
-    can_be_disabled = no
-    position_priority = 0
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
 
-    category = government
+	category = government
 
-    potential = {
-        exists = owner
-        owner = {
-            gestalt_paramind_buildings = yes
-        }
-    }
+	potential = {
+		exists = owner
+		owner = {
+			gestalt_paramind_buildings = yes
+		}
+	}
 
-    destroy_trigger = { # destroys and/or triggers conversion if true
-        exists = owner
-        OR = {
-            owner = {gestalt_paramind_buildings = no}
-        }
-    }
+	destroy_trigger = { # destroys and/or triggers conversion if true
+		exists = owner
+		OR = {
+			owner = {gestalt_paramind_buildings = no}
+		}
+	}
 
-    convert_to = {
-        building_hive_capital
-        building_machine_capital
-        building_capital
-        building_ancient_control_center
-        building_ancient_palace
-    }
+	convert_to = {
+		building_hive_capital
+		building_machine_capital
+		building_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
 
 	upgrades = {
-        "building_paramind_major_capital"
-    }
+		"building_paramind_major_capital"
+	}
 
-    prerequisites = {
-        "tech_planetary_government"
-    }
+	prerequisites = {
+		"tech_planetary_government"
+	}
 
-    show_tech_unlock_if = {
-        gestalt_paramind_buildings = yes
-    }
+	show_tech_unlock_if = {
+		gestalt_paramind_buildings = yes
+	}
 
 
 	planet_modifier = {
@@ -356,19 +356,19 @@ building_paramind_capital = {
 
 
 
-    resources = {
-        category = planet_buildings
-        cost = {
-            minerals = 1000
-        }
-        upkeep = {
-            energy = 2
-        }
-    }
-    
-    # TODO: Custom triggered desc???
-    
-    	triggered_desc = {
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	# TODO: Custom triggered desc???
+	
+		triggered_desc = {
 		trigger = {
 			exists = owner
 			owner = {
@@ -440,30 +440,30 @@ building_paramind_capital = {
 
 # Hive Nexus
 building_paramind_major_capital = {
-    base_buildtime = @b2_time
-    capital = yes
-    can_build = no
-    can_demolish = no
-    can_be_ruined = no
-    can_be_disabled = no
-    position_priority = 0
+	base_buildtime = @b2_time
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
 
-    category = government
+	category = government
 
-    potential = {
-        exists = owner
-        owner = {
-            gestalt_paramind_buildings = yes
-        }
-    }
+	potential = {
+		exists = owner
+		owner = {
+			gestalt_paramind_buildings = yes
+		}
+	}
 
-    convert_to = {
-        building_hive_major_capital
-        building_machine_major_capital
-        building_major_capital
-        building_ancient_control_center
-        building_ancient_palace
-    }
+	convert_to = {
+		building_hive_major_capital
+		building_machine_major_capital
+		building_major_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
 
 	# Somewhere between the tier 3 and tier 4 regular capitals
 	planet_modifier = {
@@ -560,17 +560,17 @@ building_paramind_major_capital = {
 		}
 	}
 
-    resources = {
-        category = planet_buildings
-        cost = {
-            minerals = @b2_minerals
-        }
-        upkeep = {
-            energy = @b2_upkeep
-        }
-    }
-    
-    	triggered_desc = {
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+	}
+	
+		triggered_desc = {
 		trigger = {
 			exists = owner
 			owner = {
@@ -672,13 +672,13 @@ building_hive_node = {
 	destroy_trigger = {
 		exists = owner
 		OR = {
-            owner = { is_hive_empire = no }
-            owner = { gestalt_paramind_buildings = no }
+			owner = { is_hive_empire = no }
+			owner = { gestalt_paramind_buildings = no }
 		}
 	}
 
 	convert_to = {
-        building_paramind_node
+		building_paramind_node
 		building_bureaucratic_1
 		building_temple
 		building_uplink_node
@@ -763,7 +763,7 @@ building_hive_cluster = {
 	potential = {
 		exists = owner
 		owner = { is_hive_empire = yes }
-        owner = { gestalt_paramind_buildings = no }
+		owner = { gestalt_paramind_buildings = no }
 	}
 
 	allow = {
@@ -780,7 +780,7 @@ building_hive_cluster = {
 	}
 
 	convert_to = {
-        building_paramind_cluster
+		building_paramind_cluster
 		building_bureaucratic_2
 		building_holotemple
 		building_network_junction
@@ -865,7 +865,7 @@ building_hive_confluence = {
 	potential = {
 		exists = owner
 		owner = { is_hive_empire = yes }
-        owner = { gestalt_paramind_buildings = no }
+		owner = { gestalt_paramind_buildings = no }
 	}
 
 	allow = {
@@ -882,7 +882,7 @@ building_hive_confluence = {
 	}
 
 	convert_to = {
-        building_paramind_confluence
+		building_paramind_confluence
 		building_bureaucratic_3
 		building_sacred_nexus
 		building_system_conflux
@@ -969,11 +969,11 @@ building_paramind_node = {
 
 	destroy_trigger = {
 		exists = owner
-        owner = { gestalt_paramind_buildings = no }
+		owner = { gestalt_paramind_buildings = no }
 	}
 
 	convert_to = {
-        building_hive_node
+		building_hive_node
 		building_bureaucratic_1
 		building_temple
 		building_uplink_node
@@ -1057,7 +1057,7 @@ building_paramind_cluster = {
 
 	potential = {
 		exists = owner
-        owner = { gestalt_paramind_buildings = yes }
+		owner = { gestalt_paramind_buildings = yes }
 	}
 
 	allow = {
@@ -1073,7 +1073,7 @@ building_paramind_cluster = {
 	}
 
 	convert_to = {
-        building_hive_cluster
+		building_hive_cluster
 		building_bureaucratic_2
 		building_holotemple
 		building_network_junction
@@ -1158,7 +1158,7 @@ building_paramind_confluence = {
 	potential = {
 		exists = owner
 		owner = { is_hive_empire = yes }
-        owner = { gestalt_paramind_buildings = no }
+		owner = { gestalt_paramind_buildings = no }
 	}
 
 	allow = {
@@ -1175,7 +1175,7 @@ building_paramind_confluence = {
 	}
 
 	convert_to = {
-        building_hive_confluence
+		building_hive_confluence
 		building_bureaucratic_3
 		building_sacred_nexus
 		building_system_conflux
@@ -3520,7 +3520,7 @@ building_sacrificial_temple_1 = {
 	}
 
 	convert_to = {
-        building_paramind_node
+		building_paramind_node
 		building_bureaucratic_1
 		building_temple
 		building_hive_node
@@ -3597,7 +3597,7 @@ building_sacrificial_temple_2 = {
 	}
 
 	convert_to = {
-        building_paramind_cluster
+		building_paramind_cluster
 		building_bureaucratic_2
 		building_holotemple
 		building_hive_cluster
@@ -3693,14 +3693,14 @@ building_sacrificial_temple_3 = {
 		OR = {
 			buildings_no_exotic_gases = yes
 			owner = {
-				 is_death_cult_empire = no
+				is_death_cult_empire = no
 			}
 			has_modifier = slave_colony
 		}
 	}
 
 	convert_to = {
-        building_paramind_confluence
+		building_paramind_confluence
 		building_hypercomms_forum
 		building_hive_confluence
 		building_simulation_3
@@ -3766,6 +3766,326 @@ building_sacrificial_temple_3 = {
 
 	show_tech_unlock_if = {
 		is_death_cult_empire = yes
+	}
+}
+
+
+#############
+# Science buildings
+#############
+building_research_lab_1 = {
+	base_buildtime = @b1_time
+
+	exempt_from_ai_planet_specialization = no
+
+	category = research
+
+	potential = {
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { gestalt_uses_drones = yes }
+		}
+		modifier = {
+			job_brain_drone_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = @b1_jobs
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = {
+		"building_research_lab_2"
+	}
+
+	prerequisites = {
+		"tech_basic_science_lab_1"
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { gestalt_uses_drones = yes }
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_calculator_effect_desc
+	}
+}
+
+building_research_lab_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+
+	category = research
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+			buildings_no_exotic_gases = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = @b2_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { gestalt_uses_drones = yes }
+		}
+		modifier = {
+			job_brain_drone_add = @b2_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = @b2_jobs
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+
+	upgrades = {
+		"building_research_lab_3"
+	}
+
+	prerequisites = {
+		"tech_basic_science_lab_2"
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { gestalt_uses_drones = yes }
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_calculator_effect_desc
+	}
+}
+
+building_research_lab_3 = {
+	base_buildtime = @b3_time
+	can_build = no
+
+	category = research
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+			buildings_no_exotic_gases = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = @b3_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { gestalt_uses_drones = yes }
+		}
+		modifier = {
+			job_brain_drone_add = @b3_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = @b3_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_gestalt_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			exotic_gases = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			exotic_gases = @b3_rare_upkeep
+		}
+		upkeep = {
+			trigger = {
+				owner = {
+					is_galactic_community_member = yes
+				}
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				planet = {
+					has_modifier = pm_extradimensional_experimentation
+				}
+			}
+			sr_zro = 1
+		}
+	}
+
+	prerequisites = {
+		"tech_basic_science_lab_3"
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { gestalt_uses_drones = yes }
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_calculator_effect_desc
 	}
 }
 
