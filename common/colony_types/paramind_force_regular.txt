@@ -1,0 +1,253 @@
+ 
+ # First, we must disable hive subtype from our paraminds
+ 
+# Hive Planet/Nest planet
+col_hive = {
+	icon = GFX_colony_type_urban
+
+	potential = {
+		NOR = {
+			uses_district_set = ring_world
+			uses_district_set = habitat
+		}
+		exists = owner
+		owner = { is_hive_empire = yes }
+		owner = { gestalt_paramind_buildings = no }
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_structures_upkeep_mult = -0.10
+		planet_jobs_complex_drone_produces_mult = 0.05
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 1
+			num_free_districts = { type = district_farming value < @free_districts_low_threshold }
+			num_free_districts = { type = district_mining value < @free_districts_low_threshold }
+			num_free_districts = { type = district_generator value < @free_districts_low_threshold }
+			num_free_districts = { type = district_hive value >= @free_districts_medium_threshold }
+		}
+		modifier = {
+			add = 3
+			num_free_districts = { type = district_farming value < @free_districts_low_threshold }
+			num_free_districts = { type = district_mining value < @free_districts_low_threshold }
+			num_free_districts = { type = district_generator value < @free_districts_low_threshold }
+			num_free_districts = { type = district_hive value >= @free_districts_high_threshold }
+		}
+
+		modifier = {
+			add = 2
+			has_designation = col_hive
+		}
+		modifier = {
+			add = 5
+			has_modifier = natural_beauty
+		}
+		modifier = {
+			add = 5
+			num_districts = { type = district_hive value >= @built_districts_high_threshold }
+		}
+		modifier = {
+			factor = 0
+			exists = sector
+			sector = {
+				has_any_sector_focus = yes
+				not = { has_sector_focus = "balanced" }
+			}
+		}
+	}
+}
+
+
+# Capital Planet - Hive Mind
+col_capital_hive = {
+	icon = GFX_colony_type_capital
+
+	potential = {
+		is_capital = yes
+		exists = owner
+		owner = {
+			is_country_type = default
+			is_hive_empire = yes
+			gestalt_paramind_buildings = no
+		}
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_no_happiness_add = 10
+		planet_crime_no_happiness_add = -20
+		planet_jobs_produces_mult = 0.1
+		planet_resettlement_unemployed_destination_mult = 0.1
+	}
+
+	weight_modifier = {
+		base = 15000
+	}
+}
+
+col_bureau_hive = {
+	icon = GFX_colony_type_bureaucratic
+
+	potential = {
+		exists = owner
+		owner = { is_hive_empire = yes }
+		owner = { gestalt_paramind_buildings = no }
+		NOT = {
+			uses_district_set = habitat
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_administrators_produces_mult = 0.10
+		planet_administrators_upkeep_mult = -0.10
+	}
+
+	weight_modifier = {
+		base = 10
+		modifier = {
+			add = 5
+			has_designation = col_bureau_hive
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_hive_node value >= 2 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_hive_node value >= 3 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_hive_node value >= 4 }
+		}
+		modifier = {
+			add = 6
+			num_buildings = { type = building_hive_node value >= 5 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_hive_cluster value >= 1 }
+		}
+		modifier = {
+			add = 6
+				num_buildings = { type = building_hive_cluster value >= 2 }
+		}
+		modifier = {
+			add = 6
+			num_buildings = { type = building_hive_confluence value >= 1 }
+		}
+		modifier = {
+			add = 7
+			num_buildings = { type = building_hive_confluence value >= 2 }
+		}
+		modifier = {
+			factor = 0
+			AND = {
+				num_buildings = { type = building_hive_node value = 0 }
+				num_buildings = { type = building_hive_cluster value = 0 }
+				num_buildings = { type = building_hive_confluence value = 0 }
+			}
+		}
+		modifier = {
+			factor = 0
+			exists = sector
+			sector = {
+				has_any_sector_focus = yes
+				not = { has_sector_focus = "unity" }
+				not = { has_sector_focus = "balanced" }
+			}
+		}
+		modifier = {
+			add = 1
+			exists = sector
+			sector = {
+				has_sector_focus = "unity"
+			}
+		}
+	}
+}
+
+
+col_habitat_bureau_hive = {
+	icon = GFX_colony_type_hab_bureaucratic
+
+	potential = {
+		exists = owner
+		owner = { is_hive_empire = yes }
+		owner = { gestalt_paramind_buildings = no}
+		uses_district_set = habitat
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_administrators_produces_mult = 0.10
+		planet_administrators_upkeep_mult = -0.10
+	}
+
+	weight_modifier = {
+		base = 10
+		modifier = {
+			add = 5
+			has_designation = col_habitat_bureau_hive
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_hive_node value >= 2 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_hive_node value >= 3 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_hive_node value >= 4 }
+		}
+		modifier = {
+			add = 6
+			num_buildings = { type = building_hive_node value >= 5 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_hive_cluster value >= 1 }
+		}
+		modifier = {
+			add = 6
+				num_buildings = { type = building_hive_cluster value >= 2 }
+		}
+		modifier = {
+			add = 6
+			num_buildings = { type = building_hive_confluence value >= 1 }
+		}
+		modifier = {
+			add = 7
+			num_buildings = { type = building_hive_confluence value >= 2 }
+		}
+		modifier = {
+			factor = 0
+			AND = {
+				num_buildings = { type = building_hive_node value = 0 }
+				num_buildings = { type = building_hive_cluster value = 0 }
+				num_buildings = { type = building_hive_confluence value = 0 }
+			}
+		}
+		modifier = {
+			factor = 0
+			exists = sector
+			sector = {
+				has_any_sector_focus = yes
+				not = { has_sector_focus = "unity" }
+				not = { has_sector_focus = "balanced" }
+			}
+		}
+		modifier = {
+			add = 1
+			exists = sector
+			sector = {
+				has_sector_focus = "unity"
+			}
+		}
+	}

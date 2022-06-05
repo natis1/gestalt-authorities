@@ -1,0 +1,27 @@
+
+# Root = Species
+# From = Country
+# This = Species
+species_has_happiness = {
+    exists = from
+    NOR = {
+        has_trait = trait_machine_unit
+        from = { gestalt_has_happiness = no }
+        can_think = no
+        AND = {
+            has_trait = trait_mechanical
+            OR = {
+                from = { has_authority = auth_machine_intelligence }
+                from = { NOT = { has_technology = tech_synthetic_workers } }
+                from = { has_policy_flag = ai_outlawed }
+            }
+        }
+        AND = {
+            has_trait = trait_cybernetic
+            from = {
+                has_authority = auth_machine_intelligence
+                has_civic = civic_machine_assimilator # Assimilator empire
+            }
+        }
+    }
+}

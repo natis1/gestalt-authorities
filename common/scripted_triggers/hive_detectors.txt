@@ -81,3 +81,41 @@ gestalt_paramind_buildings = {
     has_authority = auth_paramind
 }
 
+# Note, we include the vanilla gestalts here because we are overriding how drones are added
+# to foundries when using catalytic processing.
+gestalt_uses_drones = {
+    OR = {
+        has_authority = auth_hive_mind
+        has_authority = auth_machine_intelligence
+    }
+}
+
+# If the gestalt is one of the ones that uses the vanilla edicts
+# like observational instinct or whatever
+gestalt_uses_vanilla_edicts = { 
+    OR = {
+        has_authority = auth_hive_mind
+    }
+}
+
+# If the gestalt uses organism edicts. A special class added for onemind specifically
+gestalt_uses_organism_edicts = {
+    has_authority = auth_onemind
+}
+
+gestalt_has_happiness = {
+    OR = {
+        has_authority = auth_paramind
+    }
+}
+
+# This gestalt is unified by its unique genetics
+# only those with this biology can survive
+# overridden by hive ascension.
+gestalt_biologically_driven = {
+    OR = {
+        has_authority = auth_hive_mind
+        has_authority = auth_overmind
+        has_authority = auth_onemind
+    }
+}

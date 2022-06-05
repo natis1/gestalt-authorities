@@ -1,0 +1,692 @@
+
+# Removes brain drone adds for paraminds
+
+d_migrating_forest_reserve = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_huge_tree
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_valley_of_zanaam = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_alien_pets_deposit
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.30
+		planet_jobs_engineering_research_produces_mult = 0.30
+		planet_jobs_physics_research_produces_mult = 0.30
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 4
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_the_zone = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_levitating_rocks
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			unity = 3
+		}
+	}
+
+	planet_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_toy_factory_complex = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_building_complex
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.10
+		planet_jobs_engineering_research_produces_mult = 0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_mutant_landfill = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_organic_landfill
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_ancient_bombardment_craters = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_crater
+
+	planet_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+
+d_ancient_battlefield = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_organic_landfill
+
+	planet_modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_irradiated_ruins = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_metal_boneyard
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_odd_factory = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_building
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_odd_factory_worker_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_odd_factory_drone_add = 1
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+
+d_ancient_particle_accelerator = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_building
+
+	planet_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_underground_vault = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_bunker_door
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+
+d_flooded_mounds = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_teeming_reef
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_wetware_computer = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_toxic_kelp
+
+	planet_modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+
+d_savage_wildlands = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_dangerous_wildlife_blocker
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_central_spire = {
+	is_for_colonizable = yes
+	icon = d_central_spire
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		planet_jobs_society_research_produces_mult = 0.15
+		planet_jobs_engineering_research_produces_mult = 0.15
+		planet_jobs_physics_research_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 8
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+			owner = { gestalt_paramind_buildings = no }
+		}
+		modifier = {
+			job_brain_drone_add = 8
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 8
+		}
+	}
+
+
