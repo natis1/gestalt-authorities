@@ -26,10 +26,6 @@ auth_paramind = {
             }
         }
     }
-    
-    traits = {
-        trait = trait_hive_mind
-    }
 
     tags = {
         AUTH_HIVE_MIND_AI_RESTRICTIONS

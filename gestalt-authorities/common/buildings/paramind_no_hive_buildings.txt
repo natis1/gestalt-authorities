@@ -553,6 +553,7 @@ building_foundry_3 = {
         }
         text = job_catalytic_drone_effect_desc
     }
+}
 
 building_production_center = {
     base_buildtime = @b2_time
@@ -1158,7 +1159,7 @@ building_supercomputer = {
 
 # No hive warrens
 
-
+ 
 #Hive housing
 building_hive_warren = {
     base_buildtime = @b1_time
@@ -1167,8 +1168,9 @@ building_hive_warren = {
 
     potential = {
         exists = owner
-        owner = { is_hive_empire = yes }
-        owner = { gestalt_paramind_buildings = no }
+        owner = {
+            is_hive_empire = yes
+            gestalt_paramind_buildings = no }
     }
 
     allow = {
@@ -1224,6 +1226,7 @@ building_hive_warren = {
         "building_expanded_warren"
     }
 }
+
 
 building_expanded_warren = {
     base_buildtime = @b2_time
