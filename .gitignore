@@ -1,0 +1,8 @@
+autohive/bin/*
+autohive/obj/*
+autohive/lib/*
+autohive/autohive/bin/*
+autohive/autohive/obj/*
+autohive/autohive/lib/*
+bin/*
+obj/*

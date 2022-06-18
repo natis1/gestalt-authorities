@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Aether">
+        <HintPath>..\lib\Aether.dll</HintPath>
+      </Reference>
+      <Reference Include="Argu">
+        <HintPath>..\lib\Argu.dll</HintPath>
+      </Reference>
+      <Reference Include="Chiron">
+        <HintPath>..\lib\Chiron.dll</HintPath>
+      </Reference>
+      <Reference Include="CWTools">
+        <HintPath>..\lib\CWTools.dll</HintPath>
+      </Reference>
+      <Reference Include="FParsec">
+        <HintPath>..\lib\FParsec.dll</HintPath>
+      </Reference>
+      <Reference Include="FParsecCS">
+        <HintPath>..\lib\FParsecCS.dll</HintPath>
+      </Reference>
+      <Reference Include="FSharp.Collections.ParallelSeq">
+        <HintPath>..\lib\FSharp.Collections.ParallelSeq.dll</HintPath>
+      </Reference>
+      <Reference Include="FSharp.Core">
+        <HintPath>..\lib\FSharp.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="FSharp.Data">
+        <HintPath>..\lib\FSharp.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="FSharpPlus">
+        <HintPath>..\lib\FSharpPlus.dll</HintPath>
+      </Reference>
+      <Reference Include="FSharpx.Collections">
+        <HintPath>..\lib\FSharpx.Collections.dll</HintPath>
+      </Reference>
+      <Reference Include="FsPickler">
+        <HintPath>..\lib\FsPickler.dll</HintPath>
+      </Reference>
+      <Reference Include="ICSharpCode.SharpZipLib">
+        <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      </Reference>
+      <Reference Include="Pastel">
+        <HintPath>..\lib\Pastel.dll</HintPath>
+      </Reference>
+      <Reference Include="Sandwych.QuickGraph.Core">
+        <HintPath>..\lib\Sandwych.QuickGraph.Core.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
